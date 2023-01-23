@@ -30,7 +30,21 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const token = localStorage.getItem("petshop.token");
+
+    if (token) {
+      this.service.refreshToken().subscribe(
+        (data: any) => {
+          localStorage.setItem("petshop.token", data.token);
+        },
+        (err) => {
+          localStorage.clear();
+          console.log(err);
+        }
+      );
+    }
+  }
 
   submit() {
     this.service.authenticate(this.form.value).subscribe(
