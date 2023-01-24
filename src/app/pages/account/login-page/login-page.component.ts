@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CustomValidator } from "src/app/validators/custom.validator";
 import { User } from "src/app/models/user.model";
-import { Security } from "src/app/utils/secury.util";
+import { Security } from "src/app/utils/security.util";
 import { Router } from "@angular/router";
 
 @Component({

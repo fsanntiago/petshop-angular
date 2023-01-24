@@ -1,3 +1,4 @@
+import { AuthService } from "./services/auth.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
@@ -16,6 +17,7 @@ import { ProductCardComponent } from "./components/store/product-card/product-ca
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoadingComponent } from "./components/shared/loading/loading.component";
 import { MaskDirective } from "./directives/mask.directive";
+import { DataService } from "./services/data.service";
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { MaskDirective } from "./directives/mask.directive";
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [DataService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
