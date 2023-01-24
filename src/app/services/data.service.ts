@@ -19,7 +19,7 @@ export class DataService {
   }
 
   getProducts() {
-    return this.http.get<Product[]>(`${this.url}/product`);
+    return this.http.get<Product[]>(`${this.url}/products`);
   }
 
   authenticate(data) {
