@@ -1,6 +1,7 @@
 import { Product } from "./../models/product.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Security } from "../utils/security.util";
 
 // posso injetar essa clase em outras classes
 // 'root' = disponivel para todos os modulos
@@ -13,7 +14,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   public composeHeader() {
-    const token = localStorage.getItem("petshop.token");
+    const token = Security.getToken();
     const headers = new HttpHeaders().set("Authorization", `bearer ${token}`);
     return headers;
   }
@@ -38,5 +39,17 @@ export class DataService {
 
   resetPassword(data) {
     return this.http.post(`${this.url}/accounts/reset-password`, data);
+  }
+
+  getProfile() {
+    return this.http.get(`${this.url}/accounts`, {
+      headers: this.composeHeader(),
+    });
+  }
+
+  updateProfile(data) {
+    return this.http.put(`${this.url}/accounts`, data, {
+      headers: this.composeHeader(),
+    });
   }
 }

@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { LoadingComponent } from "./components/shared/loading/loading.component";
 import { MaskDirective } from "./directives/mask.directive";
 import { DataService } from "./services/data.service";
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DataService } from "./services/data.service";
     ProductCardComponent,
     LoadingComponent,
     MaskDirective,
+    ProfilePageComponent,
   ],
   imports: [
     BrowserModule,
