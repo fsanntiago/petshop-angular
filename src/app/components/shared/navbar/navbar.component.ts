@@ -2,6 +2,7 @@ import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { User } from "src/app/models/user.model";
 import { Security } from "../../../utils/security.util";
+import { CartUtil } from "src/app/utils/cart.util";
 
 @Component({
   selector: "app-navbar",
@@ -18,5 +19,15 @@ export class NavbarComponent implements OnInit {
   logout() {
     Security.clear();
     this.route.navigate(["/login"]);
+  }
+
+  totalCartItems() {
+    let total = 0;
+    let cart = CartUtil.get();
+    cart.items.forEach((item) => {
+      total += item.quantity;
+    });
+
+    return total;
   }
 }
